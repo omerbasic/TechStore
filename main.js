@@ -49,13 +49,19 @@ function addProductsToWebpage() {
             var titleListItem = document.createElement("h1")
             var descriptionListItem = document.createElement("p")
             var imageListItem = document.createElement("img")
-            imageListItem.setAttribute('src',  '/assets/' + selectedProduct.image);
+            imageListItem.setAttribute('src',  '/assets/' + selectedProduct.image); 
+            //Eftersom att bilderna inte ligger i rootmappen görs detta för att filsökvägen ska funka ordentligt
+            imageListItem.classList = "productImage"
             var priceListItem = document.createElement("h4")
+            var buttonListItem = document.createElement("button")
+
 
         titleListItem.innerText = selectedProduct.title
         descriptionListItem.innerText = selectedProduct.description
         imageListItem.innerText = selectedProduct.image
         priceListItem.innerText = selectedProduct.price
+        buttonListItem.innerHTML = "Lägg till i kundvagn"
+        
 
         
         
@@ -63,16 +69,18 @@ function addProductsToWebpage() {
         infolist.appendChild(descriptionListItem)
         infolist.appendChild(imageListItem)
         infolist.appendChild(priceListItem)
+        infolist.appendChild(buttonListItem)
 
         productCard.appendChild(infolist)
         container.appendChild(productCard)
-
+        
         
 
         
         
 
     }
+    
 
     // Add your code here, remember to brake your code in to smaller function blocks
     // to reduce complexity and increase readability. Each function should have
