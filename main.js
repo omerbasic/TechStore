@@ -16,7 +16,13 @@ function loadProducts() {
 function initSite() {
     loadProducts();
     // This would also be a good place to initialize other parts of the UI
+ 
+    var body = document.getElementsByTagName("body")[0]
+    
+    var container = document.createElement("div")
+    container.classList = "container"
 }
+body.appendChild(container)
 
 /** Uses the loaded products data to create a visible product list on the website */
 function addProductsToWebpage() {
