@@ -4,4 +4,27 @@
     flex-wrap: wrap;
     background-color: darkgoldenrod;
     min-height: 10em;
+    
+}
+
+div{
+    align-content: center;
+    text-align: center;
+    
+}
+ul{
+    padding:5;
+    padding-inline-start: 0;
+}
+.infodiv{
+   
+    
+}
+.PCdiv{
+    display: flex;
+    flex-wrap: wrap;
+}
+img{
+    height: 50vh;
+    width: 50vw;
 }
