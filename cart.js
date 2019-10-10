@@ -83,7 +83,7 @@ function addProductsToWebpage() {
     }
     
     var totalPriceContainer = getPriceElement()
-    container.appendChild(totalPriceContainer);
+    main.appendChild(totalPriceContainer);
     console.log(totalPriceContainer)
   } 
 
