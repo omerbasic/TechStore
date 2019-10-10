@@ -17,6 +17,7 @@ function getCart(){
     return JSON.parse(localStorage.doList);
 }
 var cart = getCart();
+var totalPrice = 0
 
 function initSite() {
     //loadProducts();
@@ -36,10 +37,14 @@ function addProductsToWebpage() {
     var container = document.createElement("div");
     container.classList = "container";
     main.appendChild(container);
+
+  
   
     //** This loop is supposed to create a div for each product and also fill the div with relevant information */
     for (var i = 0; i < cart.length; i++) {
       var selectedProduct = cart[i];
+      totalPrice += selectedProduct.price;
+      console.log(totalPrice);
   
       var productCard = document.createElement("div");
       productCard.classList = "PCdiv";
@@ -76,7 +81,12 @@ function addProductsToWebpage() {
       productCard.appendChild(infolist);
       container.appendChild(productCard);
     }
-  }
+    
+    var totalPriceContainer = getPriceElement()
+    container.appendChild(totalPriceContainer);
+    console.log(totalPriceContainer)
+  } 
+
 
   function removeFromCart(title) {
    
@@ -90,7 +100,7 @@ function addProductsToWebpage() {
         cart.splice(productName, 1);
         var	json_str	=	JSON.stringify(cart);	
         localStorage.doList	=	json_str;	
-        räknare();
+        cartCounter();
         console.log(cart)
         location.reload();
         
@@ -99,8 +109,21 @@ function addProductsToWebpage() {
   
   
   //Lägger till produkt samt uppdaterar antalet produkter
-  function räknare() {
+  function getPriceElement() {
     
-    document.getElementById("itemcounter").innerHTML = getCart().length;
-    
+    var priceContainer = document.createElement("div");
+    var textOutput = document.createElement("p");
+    textOutput.innerText = "Totalt pris:" + totalPrice + "kr"
+    priceContainer.appendChild(textOutput)
+    return priceContainer;
   }
+
+  function cartCounter () {
+    document.getElementById("itemcounter").innerHTML = getCart().lenght;
+  }
+
+
+
+  // ISSUE TO FIX:
+  // div.PriceContainer CANNOT BE child element to main container
+  // Otherwise the price will be on the side (flex box) and we want it to be at the bottom
