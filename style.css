@@ -61,14 +61,17 @@ header {
 
 #cart {
     margin-right: 4%;
+    display: flex;
+    justify-content:space-between;
+    
 }
 
 #cart>img {
     width: 140%;
     
     
-    
-    
+}
 
-
+#itemcounter{
+    font-size: 40px;
 }
