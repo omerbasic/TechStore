@@ -100,7 +100,7 @@ function addProductsToWebpage() {
         cart.splice(productName, 1);
         var	json_str	=	JSON.stringify(cart);	
         localStorage.doList	=	json_str;	
-        cartCounter();
+        //cartCounter();
         console.log(cart)
         location.reload();
         
@@ -113,14 +113,22 @@ function addProductsToWebpage() {
     
     var priceContainer = document.createElement("div");
     var textOutput = document.createElement("p");
+    
+    if (totalPrice>0){
     textOutput.innerText = "Totalt pris:" + totalPrice + "kr"
     priceContainer.appendChild(textOutput)
     return priceContainer;
   }
-
-  function cartCounter () {
-    document.getElementById("itemcounter").innerHTML = getCart().lenght;
+  else {
+    textOutput.innerText = "Din varukorg är tom"
+    priceContainer.appendChild(textOutput)
+    return priceContainer;
   }
+  }
+
+  /* function cartCounter () {
+    document.getElementById("itemcounter").innerHTML = getCart().lenght;
+  } */
 
 
 
