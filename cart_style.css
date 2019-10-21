@@ -1,7 +1,7 @@
 .addButton {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #E64E4E;
-    padding: 10px;
+    
     border: 0;
     color: white;
     font-size: larger;
@@ -51,7 +51,7 @@
 img.imgL{
     height: 20px;
     width: 20px;
-    margin-top: 15px;
+    margin-top: 6.5px;
 }
 
 img.productImage {
