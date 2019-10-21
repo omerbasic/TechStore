@@ -57,3 +57,25 @@ a {
     text-decoration: none;
 }
 
+.COC {
+    background-color: #5596F5;
+    width: 20%;
+    height: auto;
+    margin: 0px auto 0px auto;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+ }
+
+.COCIMG {
+    background-color: #5596F5;
+    border-radius: 10px;
+}
+
+
+.COCBUTT {
+    background-color: #5596F5;
+    border: 0px;
+    font-size: 1.2em;
+    color: white;
+}

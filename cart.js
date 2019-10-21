@@ -101,6 +101,19 @@ function addProductsToWebpage() {
     var totalPriceContainer = getPriceElement()
     main.appendChild(totalPriceContainer);
     console.log(totalPriceContainer)
+
+    var checkOutContainer = document.createElement("div");
+    checkOutContainer.classList = "COC"
+    main.appendChild(checkOutContainer);
+    var checkOutImage = document.createElement("img");  
+    checkOutImage.classList = "COCIMG"
+    checkOutImage.setAttribute("src", "/assets/checked.png");
+    checkOutContainer.appendChild(checkOutImage);
+    var checkOutButton = document.createElement("button");
+    checkOutButton.classList = "COCBUTT"
+    checkOutButton.innerHTML = "Slutför ditt köp"
+    checkOutContainer.appendChild(checkOutButton);
+    
   } 
 
 
@@ -142,6 +155,8 @@ function addProductsToWebpage() {
     return priceContainer;
   }
   }
+  
+    
 
  
 
