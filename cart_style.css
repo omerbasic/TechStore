@@ -2,9 +2,24 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #E64E4E;
     padding: 10px;
+    border: 0;
+    color: white;
+    font-size: larger;
+}
+.bDiv {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #E64E4E;
+    padding: 10px;
     border-radius: 8px;
     color: white;
     font-size: larger;
+    
+}
+.bDiv:hover{
+    background-color: green;
+}
+.addButton:hover{
+    background-color: green;
 }
 
 .container {
