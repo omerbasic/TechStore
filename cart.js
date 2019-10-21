@@ -61,19 +61,19 @@ function addProductsToWebpage() {
       var titleListItem = document.createElement("h1");
       var priceListItem = document.createElement("h4");
       var buttonDiv = document.createElement("div")
-      var imgLink = document.createElement("a")
+      
       imageListItem.setAttribute("src", "/assets/" + selectedProduct.image);
       var buttonImg = document.createElement("img")
       buttonImg.setAttribute("src", "/assets/white_cart.png");
       var buttonListItem = document.createElement("button");
-
+      buttonImg.classList = "imgL"
       buttonDiv.classList = "bDiv"
       buttonListItem.classList = "addButton"
       buttonListItem.num = i;
       buttonListItem.onclick = function() {
         removeFromCart(this.num);
       };
-      imgLink.onclick = function() {
+      buttonImg.onclick = function() {
         removeFromCart(this.num);
       };
   
@@ -89,8 +89,7 @@ function addProductsToWebpage() {
       infolist.appendChild(titleListItem);
       infolist.appendChild(priceListItem);
       infolist.appendChild(buttonDiv)
-      buttonDiv.appendChild(imgLink);
-      imgLink.appendChild(buttonImg)
+      buttonDiv.appendChild(buttonImg);
       buttonDiv.appendChild(buttonListItem);
       
   
@@ -145,7 +144,7 @@ function addProductsToWebpage() {
     textOutput.classList = "totalPrice"
     
     if (totalPrice>0){
-    textOutput.innerText = "Totalt pris:" + totalPrice + "kr"
+    textOutput.innerText = "Totalt pris:" + " " + " " + totalPrice +" "+ "kr"
     priceContainer.appendChild(textOutput)
     return priceContainer;
   }
