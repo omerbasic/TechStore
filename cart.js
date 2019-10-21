@@ -64,7 +64,7 @@ function addProductsToWebpage() {
       
       imageListItem.setAttribute("src", "/assets/" + selectedProduct.image);
       var buttonImg = document.createElement("img")
-      buttonImg.setAttribute("src", "/assets/white_cart.png");
+      buttonImg.setAttribute("src", "/assets/trash.png");
       var buttonListItem = document.createElement("button");
       buttonImg.classList = "imgL"
       buttonDiv.classList = "bDiv"
