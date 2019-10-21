@@ -1,6 +1,6 @@
 .addButton {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: cornflowerblue;
+    background-color: #E64E4E;
     padding: 10px;
     border-radius: 8px;
     color: white;
@@ -11,4 +11,19 @@
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
+    
+}
+.infodiv{
+    border: solid #5596F5 3px;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: #F5F5F5;
+    max-width: 50%;
+    max-height: auto;
+    margin: 20px;
+}
+
+img.productImage {
+    max-height: 30vh;
+    max-width: auto;
 }
