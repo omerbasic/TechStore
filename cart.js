@@ -107,11 +107,18 @@ function addProductsToWebpage() {
     var checkOutImage = document.createElement("img");  
     checkOutImage.classList = "COCIMG"
     checkOutImage.setAttribute("src", "/assets/checked.png");
+    checkOutImage.onclick = function() {
+      checkOut();
+    }
     checkOutContainer.appendChild(checkOutImage);
     var checkOutButton = document.createElement("button");
     checkOutButton.classList = "COCBUTT"
+    checkOutButton.onclick = function() {
+      checkOut();
+    }
     checkOutButton.innerHTML = "Slutför ditt köp"
     checkOutContainer.appendChild(checkOutButton);
+
     
   } 
 
@@ -156,7 +163,11 @@ function addProductsToWebpage() {
   }
   
     
-
+  function checkOut() {
+    alert("Are sure sure sure?");
+    var cart = [];
+    location.reload();
+  }
  
 
   /* function cartCounter () {
