@@ -131,7 +131,7 @@ function addProductsToWebpage() {
     textOutput.classList = "totalPrice"
     
     if (totalPrice>0){
-    textOutput.innerText = "Totalt pris:" + totalPrice + "kr"
+    textOutput.innerText = "Totalt pris:" + " " + " " + totalPrice +" "+ "kr"
     priceContainer.appendChild(textOutput)
     return priceContainer;
   }
