@@ -65,6 +65,7 @@ function addProductsToWebpage() {
     imageListItem.innerText = selectedProduct.image;
     priceListItem.innerText = selectedProduct.price + " kr";
     buttonListItem.innerHTML = "Lägg till i kundvagn";
+  
 
     infolist.appendChild(titleListItem);
     infolist.appendChild(descriptionListItem);

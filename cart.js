@@ -52,38 +52,54 @@ function addProductsToWebpage() {
       var infolist = document.createElement("div");
       infolist.classList = "infodiv";
   
-      var titleListItem = document.createElement("h1");
-      var descriptionListItem = document.createElement("p");
+      
+      
       var imageListItem = document.createElement("img");
-      imageListItem.setAttribute("src", "/assets/" + selectedProduct.image);
+      
       //Eftersom att bilderna inte ligger i rootmappen görs detta för att filsökvägen ska funka ordentligt
       imageListItem.classList = "productImage";
+      var titleListItem = document.createElement("h1");
       var priceListItem = document.createElement("h4");
+      var buttonDiv = document.createElement("div")
+      var imgLink = document.createElement("a")
+      imageListItem.setAttribute("src", "/assets/" + selectedProduct.image);
+      var buttonImg = document.createElement("img")
+      buttonImg.setAttribute("src", "/assets/white_cart.png");
       var buttonListItem = document.createElement("button");
+
+      buttonDiv.classList = "bDiv"
       buttonListItem.classList = "addButton"
       buttonListItem.num = i;
       buttonListItem.onclick = function() {
         removeFromCart(this.num);
       };
+      imgLink.onclick = function() {
+        removeFromCart(this.num);
+      };
   
       titleListItem.innerText = selectedProduct.title;
-      descriptionListItem.innerText = selectedProduct.description;
+      
       imageListItem.innerText = selectedProduct.image;
       priceListItem.innerText = selectedProduct.price + " kr";
       buttonListItem.innerHTML = "Ta bort från kundvagn";
   
-      infolist.appendChild(titleListItem);
-      infolist.appendChild(descriptionListItem);
+      
+      
       infolist.appendChild(imageListItem);
+      infolist.appendChild(titleListItem);
       infolist.appendChild(priceListItem);
-      infolist.appendChild(buttonListItem);
+      infolist.appendChild(buttonDiv)
+      buttonDiv.appendChild(imgLink);
+      imgLink.appendChild(buttonImg)
+      buttonDiv.appendChild(buttonListItem);
+      
   
-      productCard.appendChild(infolist);
-      container.appendChild(productCard);
+      //productCard.appendChild(infolist);
+      container.appendChild(infolist);
     }
     
     var totalPriceContainer = getPriceElement()
-    container.appendChild(totalPriceContainer);
+    main.appendChild(totalPriceContainer);
     console.log(totalPriceContainer)
   } 
 
@@ -100,7 +116,7 @@ function addProductsToWebpage() {
         cart.splice(productName, 1);
         var	json_str	=	JSON.stringify(cart);	
         localStorage.doList	=	json_str;	
-        cartCounter();
+        //cartCounter();
         console.log(cart)
         location.reload();
         
@@ -113,14 +129,25 @@ function addProductsToWebpage() {
     
     var priceContainer = document.createElement("div");
     var textOutput = document.createElement("p");
+    textOutput.classList = "totalPrice"
+    
+    if (totalPrice>0){
     textOutput.innerText = "Totalt pris:" + totalPrice + "kr"
     priceContainer.appendChild(textOutput)
     return priceContainer;
   }
-
-  function cartCounter () {
-    document.getElementById("itemcounter").innerHTML = getCart().lenght;
+  else {
+    textOutput.innerText = "Din varukorg är tom"
+    priceContainer.appendChild(textOutput)
+    return priceContainer;
   }
+  }
+
+ 
+
+  /* function cartCounter () {
+    document.getElementById("itemcounter").innerHTML = getCart().lenght;
+  } */
 
 
 
