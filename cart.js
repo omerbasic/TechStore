@@ -115,6 +115,7 @@ function addProductsToWebpage() {
     
     var priceContainer = document.createElement("div");
     var textOutput = document.createElement("p");
+    textOutput.classList = "totalPrice"
     
     if (totalPrice>0){
     textOutput.innerText = "Totalt pris:" + totalPrice + "kr"
@@ -127,6 +128,8 @@ function addProductsToWebpage() {
     return priceContainer;
   }
   }
+
+ 
 
   /* function cartCounter () {
     document.getElementById("itemcounter").innerHTML = getCart().lenght;
