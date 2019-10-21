@@ -17,7 +17,9 @@ function getCart(){
     return JSON.parse(localStorage.doList);
 }
 var cart = getCart();
-var totalPrice = 0
+var totalPrice = 0;
+var emptyCart = [];
+
 
 function initSite() {
     //loadProducts();
@@ -164,10 +166,38 @@ function addProductsToWebpage() {
   
     
   function checkOut() {
-    alert("Are sure sure sure?");
-    var cart = [];
+    
+    if (confirm("Press a button")){
+      var cart = getCart()
+      cart.splice(0, cart.length);
+      var	json_str	=	JSON.stringify(cart);	
+      localStorage.doList	=	json_str;	
+      location.reload();
+      testFunction();
+     }
+
+
+   /*  var cart = getCart()
+    cart.splice(0, cart.length);
+    var	json_str	=	JSON.stringify(cart);	
+    localStorage.doList	=	json_str;	
     location.reload();
+    testFunction();
+ */
+  
   }
+
+ /* function testFunction(){
+   if (confirm){
+    var cart = getCart()
+    cart.splice(0, cart.length);
+    var	json_str	=	JSON.stringify(cart);	
+    localStorage.doList	=	json_str;	
+    location.reload();
+    testFunction();
+   }
+  
+ } */
  
 
   /* function cartCounter () {
