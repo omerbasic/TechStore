@@ -123,7 +123,7 @@ function addProductsToWebpage() {
     main.appendChild(checkOutContainer);
     var checkOutImage = document.createElement("img");  
     checkOutImage.classList = "COCIMG"
-    checkOutImage.setAttribute("src", "/assets/checked.png");
+    checkOutImage.setAttribute("src", "/assets/checkedOK.png");
     checkOutImage.onclick = function() {
       checkOut();
     }
