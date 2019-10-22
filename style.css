@@ -72,3 +72,11 @@ header {
 #itemcounter{
     font-size: 40px;
 }
+a:visited {
+    color: white;
+
+}
+
+a {
+   text-decoration: none;
+}

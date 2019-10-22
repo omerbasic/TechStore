@@ -182,13 +182,15 @@ function addProductsToWebpage() {
     
   function checkOut() {
     
-    if (confirm("Press a button")){
+    if (confirm("Vill du slutföra ditt köp?")){
       var cart = getCart()
       cart.splice(0, cart.length);
       var	json_str	=	JSON.stringify(cart);	
       localStorage.doList	=	json_str;	
+      alert("Köp genomfört!")
       location.reload();
-      testFunction();
+      
+      
      }
 
 
