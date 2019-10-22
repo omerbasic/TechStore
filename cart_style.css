@@ -110,6 +110,17 @@ img.productImage {
     color: white;
     
 }
+.COC:hover{
+    background-color: rgb(79, 133, 214);
+}
+.COC:hover img{
+    background-color: rgb(79, 133, 214);
+
+}
+.COC:hover .COCBUTT{
+    background-color: rgb(79, 133, 214);
+
+}
 
 @media only screen and (max-width: 400px) {
     .container {
