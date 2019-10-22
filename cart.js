@@ -35,11 +35,26 @@ function addProductsToWebpage() {
     // Check your console to see that the products are stored in the listOfProducts varible.
     
     var main = document.getElementsByTagName("main")[0];
+    var titleContainer = document.createElement("div");
+    var title = document.createElement("h1");
+    var imageCartTitle = document.createElement("img");
+    main.appendChild(titleContainer);
+    titleContainer.appendChild(imageCartTitle);
+    titleContainer.appendChild(title);
+    titleContainer.classList = "cartContainer";
+    imageCartTitle.classList = "cartImg";
+    title.classList = "cartTitle";
+    imageCartTitle.setAttribute("src", "/assets/cart_img.png");
+    title.innerHTML = "Kundvagn";
   
+ 
+  
+
     var container = document.createElement("div");
     container.classList = "container";
     main.appendChild(container);
-
+    
+   
   
   
     //** This loop is supposed to create a div for each product and also fill the div with relevant information */
@@ -83,7 +98,7 @@ function addProductsToWebpage() {
       
       imageListItem.innerText = selectedProduct.image;
       priceListItem.innerText = selectedProduct.price + " kr";
-      buttonListItem.innerHTML = "Ta bort från kundvagn";
+      buttonListItem.innerHTML = "Ta bort";
   
       
       
@@ -198,6 +213,7 @@ function addProductsToWebpage() {
    }
   
  } */
+  
  
 
   /* function cartCounter () {
