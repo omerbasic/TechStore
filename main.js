@@ -53,6 +53,15 @@ function addProductsToWebpage() {
     //Eftersom att bilderna inte ligger i rootmappen görs detta för att filsökvägen ska funka ordentligt
     imageListItem.classList = "productImage";
     var priceListItem = document.createElement("h4");
+    var buttonDiv = document.createElement("div");
+    buttonDiv.classList = "buttonClass";
+    var buttonImg = document.createElement("img");
+    buttonImg.setAttribute("src", "/assets/cart_arrow.png");
+    buttonImg.classList = "imgClass";
+    buttonImg.name = selectedProduct.title;
+    buttonImg.onclick = function() {
+      addToCart(this.name);
+    };
     var buttonListItem = document.createElement("button");
     buttonListItem.classList = "addButton"
     buttonListItem.name = selectedProduct.title;
@@ -71,7 +80,9 @@ function addProductsToWebpage() {
     infolist.appendChild(descriptionListItem);
     infolist.appendChild(imageListItem);
     infolist.appendChild(priceListItem);
-    infolist.appendChild(buttonListItem);
+    infolist.appendChild(buttonDiv);
+    buttonDiv.appendChild(buttonImg);
+    buttonDiv.appendChild(buttonListItem);
 
     productCard.appendChild(infolist);
     container.appendChild(productCard);

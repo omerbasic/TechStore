@@ -17,7 +17,9 @@ function getCart(){
     return JSON.parse(localStorage.doList);
 }
 var cart = getCart();
-var totalPrice = 0
+var totalPrice = 0;
+var emptyCart = [];
+
 
 function initSite() {
     //loadProducts();
@@ -33,11 +35,26 @@ function addProductsToWebpage() {
     // Check your console to see that the products are stored in the listOfProducts varible.
     
     var main = document.getElementsByTagName("main")[0];
+    var titleContainer = document.createElement("div");
+    var title = document.createElement("h1");
+    var imageCartTitle = document.createElement("img");
+    main.appendChild(titleContainer);
+    titleContainer.appendChild(imageCartTitle);
+    titleContainer.appendChild(title);
+    titleContainer.classList = "cartContainer";
+    imageCartTitle.classList = "cartImg";
+    title.classList = "cartTitle";
+    imageCartTitle.setAttribute("src", "/assets/cart_img.png");
+    title.innerHTML = "Kundvagn";
   
+ 
+  
+
     var container = document.createElement("div");
     container.classList = "container";
     main.appendChild(container);
-
+    
+   
   
   
     //** This loop is supposed to create a div for each product and also fill the div with relevant information */
@@ -61,19 +78,19 @@ function addProductsToWebpage() {
       var titleListItem = document.createElement("h1");
       var priceListItem = document.createElement("h4");
       var buttonDiv = document.createElement("div")
-      var imgLink = document.createElement("a")
+      
       imageListItem.setAttribute("src", "/assets/" + selectedProduct.image);
       var buttonImg = document.createElement("img")
-      buttonImg.setAttribute("src", "/assets/white_cart.png");
+      buttonImg.setAttribute("src", "/assets/trash.png");
       var buttonListItem = document.createElement("button");
-
+      buttonImg.classList = "imgL"
       buttonDiv.classList = "bDiv"
       buttonListItem.classList = "addButton"
       buttonListItem.num = i;
       buttonListItem.onclick = function() {
         removeFromCart(this.num);
       };
-      imgLink.onclick = function() {
+      buttonImg.onclick = function() {
         removeFromCart(this.num);
       };
   
@@ -81,7 +98,7 @@ function addProductsToWebpage() {
       
       imageListItem.innerText = selectedProduct.image;
       priceListItem.innerText = selectedProduct.price + " kr";
-      buttonListItem.innerHTML = "Ta bort från kundvagn";
+      buttonListItem.innerHTML = "Ta bort";
   
       
       
@@ -89,8 +106,7 @@ function addProductsToWebpage() {
       infolist.appendChild(titleListItem);
       infolist.appendChild(priceListItem);
       infolist.appendChild(buttonDiv)
-      buttonDiv.appendChild(imgLink);
-      imgLink.appendChild(buttonImg)
+      buttonDiv.appendChild(buttonImg);
       buttonDiv.appendChild(buttonListItem);
       
   
@@ -101,6 +117,26 @@ function addProductsToWebpage() {
     var totalPriceContainer = getPriceElement()
     main.appendChild(totalPriceContainer);
     console.log(totalPriceContainer)
+
+    var checkOutContainer = document.createElement("div");
+    checkOutContainer.classList = "COC"
+    main.appendChild(checkOutContainer);
+    var checkOutImage = document.createElement("img");  
+    checkOutImage.classList = "COCIMG"
+    checkOutImage.setAttribute("src", "/assets/checkedOK.png");
+    checkOutImage.onclick = function() {
+      checkOut();
+    }
+    checkOutContainer.appendChild(checkOutImage);
+    var checkOutButton = document.createElement("button");
+    checkOutButton.classList = "COCBUTT"
+    checkOutButton.onclick = function() {
+      checkOut();
+    }
+    checkOutButton.innerHTML = "Slutför ditt köp"
+    checkOutContainer.appendChild(checkOutButton);
+
+    
   } 
 
 
@@ -132,7 +168,7 @@ function addProductsToWebpage() {
     textOutput.classList = "totalPrice"
     
     if (totalPrice>0){
-    textOutput.innerText = "Totalt pris:" + totalPrice + "kr"
+    textOutput.innerText = "Totalt pris:" + " " + " " + totalPrice +" "+ "kr"
     priceContainer.appendChild(textOutput)
     return priceContainer;
   }
@@ -142,7 +178,44 @@ function addProductsToWebpage() {
     return priceContainer;
   }
   }
+  
+    
+  function checkOut() {
+    
+    if (confirm("Vill du slutföra ditt köp?")){
+      var cart = getCart()
+      cart.splice(0, cart.length);
+      var	json_str	=	JSON.stringify(cart);	
+      localStorage.doList	=	json_str;	
+      alert("Köp genomfört!")
+      location.reload();
+      
+      
+     }
 
+
+   /*  var cart = getCart()
+    cart.splice(0, cart.length);
+    var	json_str	=	JSON.stringify(cart);	
+    localStorage.doList	=	json_str;	
+    location.reload();
+    testFunction();
+ */
+  
+  }
+
+ /* function testFunction(){
+   if (confirm){
+    var cart = getCart()
+    cart.splice(0, cart.length);
+    var	json_str	=	JSON.stringify(cart);	
+    localStorage.doList	=	json_str;	
+    location.reload();
+    testFunction();
+   }
+  
+ } */
+  
  
 
   /* function cartCounter () {

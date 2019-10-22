@@ -1,25 +1,56 @@
 .addButton {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #E64E4E;
-    padding: 10px;
     border: 0;
     color: white;
-    font-size: larger;
+    font-size: large;
 }
+
+.cartContainer  {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: -50px;
+
+}
+
+.cartTitle {
+    font-size: 3em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+}
+
+.cartImg {
+    min-width: 50px;
+    max-height: 50px;
+    margin-top: 38px;
+
+}
+    
+
 .bDiv {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #E64E4E;
     padding: 10px;
-    border-radius: 8px;
     color: white;
     font-size: larger;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #E64E4E;
+    
     
 }
 .bDiv:hover{
-    background-color: green;
+    background-color: rgb(190, 74, 74);
 }
-.addButton:hover{
-    background-color: green;
+.bDiv:hover img{
+    background-color: rgb(190, 74, 74);
+
+}
+.bDiv:hover .addButton{
+    background-color: rgb(190, 74, 74);
+
 }
 
 .container {
@@ -37,6 +68,11 @@
     max-height: auto;
     margin: 20px;
 }
+img.imgL{
+    height: 20px;
+    width: 20px;
+    margin-top: 4px;
+}
 
 img.productImage {
     max-height: 30vh;
@@ -48,12 +84,87 @@ img.productImage {
     font-weight: bold;
 }
 
-a:visited {
-     color: white;
+
+
+.COC {
+    background-color: #5596F5;
+    width: 200px;
+    height: auto;
+    margin: 0px auto 0px auto;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+ }
+
+.COCIMG {
+    background-color: #5596F5;
+    border-radius: 10px;
+}
+
+
+.COCBUTT {
+    background-color: #5596F5;
+    border: 0px;
+    font-size: 1.2em;
+    color: white;
+    
+}
+.COC:hover{
+    background-color: rgb(79, 133, 214);
+}
+.COC:hover img{
+    background-color: rgb(79, 133, 214);
+
+}
+.COC:hover .COCBUTT{
+    background-color: rgb(79, 133, 214);
 
 }
 
-a {
-    text-decoration: none;
-}
+@media only screen and (max-width: 400px) {
+    .container {
+        padding: 10px;
+        margin-top: 20px;
+    }
+    .infodiv {
+      max-width: 140px;
+      max-height: 300px;
+      margin: 6px;
+      padding: 10px;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
 
+    img.imgL {
+        width: 15px;
+        height: 15px;
+
+    }
+    
+    img.productImage {
+        height: 20vh;
+        width: auto;
+    }
+    .infodiv>h1 {
+        font-size: 1.5em;
+        margin: 1px;
+    }
+
+    .infodiv>h4 {
+        margin: 6px;
+        font-size: 0.6em;
+    }
+    .totalPrice {
+        font-size: 1.2em;
+    }
+
+    .bDiv {
+        padding: 3px;
+        max-width: 100px;
+        margin: 0px auto 0px auto;
+    }
+    .addButton {
+        font-size: 13px;
+    }
+  }
