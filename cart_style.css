@@ -111,4 +111,49 @@ img.productImage {
     
 }
 
-/* FIXA COC BUTT MED RESPONSIV SIDA
+@media only screen and (max-width: 400px) {
+    .container {
+        padding: 10px;
+        margin-top: 20px;
+    }
+    .infodiv {
+      max-width: 140px;
+      max-height: 300px;
+      margin: 6px;
+      padding: 10px;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+
+    img.imgL {
+        width: 15px;
+        height: 15px;
+
+    }
+    
+    img.productImage {
+        height: 20vh;
+        width: auto;
+    }
+    .infodiv>h1 {
+        font-size: 1.5em;
+        margin: 1px;
+    }
+
+    .infodiv>h4 {
+        margin: 6px;
+        font-size: 0.6em;
+    }
+    .totalPrice {
+        font-size: 1.2em;
+    }
+
+    .bDiv {
+        padding: 3px;
+        max-width: 100px;
+        margin: 0px auto 0px auto;
+    }
+    .addButton {
+        font-size: 13px;
+    }
+  }
