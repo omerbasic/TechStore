@@ -24,22 +24,18 @@
         /></a>
       </div>
     </header>
-
-    <main>
-      <form onsubmit="event.preventDefault(); validateForm(usr.value, pword.value);"
-        <label>Username</label>
-        <input type="text" id="usr" placeholder="username" />
+  <main>
+    <form
+        name="loginform"
+        onSubmit="validateForm()""
+        method="get">
+        <label>User name</label>
+        <input type="text" name="usr" placeholder="username" />
         <label>Password</label>
         <input type="password" id="pword" placeholder="password" />
         <input type="submit" />
       </form>
-
-      <form id="register-form"> 
-            <input id="regname" type="text" placeholder="Name" value=""/>
-            <input id="pw" type="password" placeholder="Password" value=""/>
-            <input id="rgstr_btn" type="submit" value="get Account" onClick="store(regname.value, pw.value)"/> 
-        </form>
-
-    </main>
-  </body>
+  </main>
+</body>
+</html>
 </html>
