@@ -2,7 +2,6 @@ var listOfProducts;
 //var antalProd = 0;
 var iKundvagn = [];
 
-
 /** Get products from the json file and store it in a gobal variable */
 function loadProducts() {
   fetch("./products.json")
@@ -16,14 +15,13 @@ function loadProducts() {
 }
 
 function initSite() {
-// Skriver ut antalet varor i kundvagn vilket är satt till 0 när sidan laddas
-  
+  // Skriver ut antalet varor i kundvagn vilket är satt till 0 när sidan laddas
 
   loadProducts();
   // This would also be a good place to initialize other parts of the UI
-   iKundvagn = JSON.parse(localStorage.doList);	
-   document.getElementById("itemcounter").innerHTML = iKundvagn.length;
-   console.log(iKundvagn)
+  iKundvagn = JSON.parse(localStorage.doList);
+  document.getElementById("itemcounter").innerHTML = iKundvagn.length;
+  console.log(iKundvagn);
 }
 
 /** Uses the loaded products data to create a visible product list on the website */
@@ -63,7 +61,7 @@ function addProductsToWebpage() {
       addToCart(this.name);
     };
     var buttonListItem = document.createElement("button");
-    buttonListItem.classList = "addButton"
+    buttonListItem.classList = "addButton";
     buttonListItem.name = selectedProduct.title;
     buttonListItem.onclick = function() {
       addToCart(this.name);
@@ -74,7 +72,6 @@ function addProductsToWebpage() {
     imageListItem.innerText = selectedProduct.image;
     priceListItem.innerText = selectedProduct.price + " kr";
     buttonListItem.innerHTML = "Lägg till i kundvagn";
-  
 
     infolist.appendChild(titleListItem);
     infolist.appendChild(descriptionListItem);
@@ -98,13 +95,10 @@ function addToCart(title) {
 
   // Loop, if sats title == title
   for (var i = 0; i < listOfProducts.length; i++) {
-    
     if (productToAdd == listOfProducts[i].title) {
-      
-      iKundvagn.push(listOfProducts[i])
-      var	json_str	=	JSON.stringify(iKundvagn);	
-      localStorage.doList	=	json_str;	
-      
+      iKundvagn.push(listOfProducts[i]);
+      var json_str = JSON.stringify(iKundvagn);
+      localStorage.doList = json_str;
 
       räknare();
     }
@@ -120,8 +114,4 @@ function addToCart(title) {
 function räknare() {
   //antalProd++;
   document.getElementById("itemcounter").innerHTML = iKundvagn.length;
-  
 }
-
-
-
