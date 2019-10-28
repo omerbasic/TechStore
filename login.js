@@ -19,7 +19,7 @@ var users = [
         password: "michelle",
         orders: [
             {
-            date: 
+            date: "",
             products: [
                 {
                     
@@ -27,6 +27,10 @@ var users = [
             ]
             }
         ]   
+    },
+    {
+        username: "",
+        password: ""
     }
 ]
 
@@ -49,9 +53,13 @@ function validateForm(value1, value2) {
             alert ("success!")
             console.log(user.orders.date)
             loggedIn = true;
+            localStorage.setItem('name', name.value);
+            localStorage.setItem('pw', pw.value);
             check();
         }
     })
+
+    localStorage.removeItem("loggedInUser")
 
     if(!userToLogIn) {
         alert ("Login was unsuccessful, please check your username and password");
@@ -63,6 +71,7 @@ function check(){
 if (loggedIn = true){
 console.log(loggedIn)
 
+
 }
 }
 
@@ -70,3 +79,29 @@ function logOut(){
 
     location.reload();
 }
+
+function store(username, password){
+
+    var newUser =  {
+        username: username,
+        password: password,
+        orders: []   
+    }
+
+    users.push(newUser)
+}
+
+addOrder()
+  
+/*   users[0].push({
+    name: regName,
+    age: regPw
+  });
+}
+
+users[0]['orders'].push({
+    date: Date
+})
+users[0]['orders']['products'].push({
+    cart
+}) */

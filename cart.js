@@ -11,24 +11,24 @@
 } */
 
 function getCart() {
-  return JSON.parse(localStorage.doList);
+  return JSON.parse(localStorage.getItem("doList"));
 }
-var cart = getCart();
-var totalPrice = 0;
+
 var emptyCart = [];
 
 function initSite() {
   //loadProducts();
   // This would also be a good place to initialize other parts of the UI
 
-  document.getElementById("itemcounter").innerHTML = getCart().length;
   addProductsToWebpage();
 }
 
 function addProductsToWebpage() {
   // Check your console to see that the products are stored in the listOfProducts varible.
 
+  document.getElementById("itemcounter").innerHTML = getCart().length;
   var main = document.getElementsByTagName("main")[0];
+  main.innerHTML = "";
   var titleContainer = document.createElement("div");
   var title = document.createElement("h1");
   var imageCartTitle = document.createElement("img");
@@ -40,14 +40,15 @@ function addProductsToWebpage() {
   title.classList = "cartTitle";
   imageCartTitle.setAttribute("src", "/assets/cart_img.png");
   title.innerHTML = "Kundvagn";
-
+  var totalPrice = 0;
   var container = document.createElement("div");
   container.classList = "container";
   main.appendChild(container);
 
   //** This loop is supposed to create a div for each product and also fill the div with relevant information */
-  for (var i = 0; i < cart.length; i++) {
-    var selectedProduct = cart[i];
+  for (var i = 0; i < getCart().length; i++) {
+    var selectedProduct = getCart()[i];
+    console.log(selectedProduct);
     totalPrice += selectedProduct.price;
     console.log(totalPrice);
 
@@ -96,28 +97,30 @@ function addProductsToWebpage() {
     //productCard.appendChild(infolist);
     container.appendChild(infolist);
   }
+  
+    var totalPriceContainer = getPriceElement(totalPrice);
+    main.appendChild(totalPriceContainer);
+    
 
-  var totalPriceContainer = getPriceElement();
-  main.appendChild(totalPriceContainer);
-  console.log(totalPriceContainer);
-
-  var checkOutContainer = document.createElement("div");
-  checkOutContainer.classList = "COC";
-  main.appendChild(checkOutContainer);
-  var checkOutImage = document.createElement("img");
-  checkOutImage.classList = "COCIMG";
-  checkOutImage.setAttribute("src", "/assets/checkedOK.png");
-  checkOutImage.onclick = function() {
-    checkOut();
-  };
-  checkOutContainer.appendChild(checkOutImage);
-  var checkOutButton = document.createElement("button");
-  checkOutButton.classList = "COCBUTT";
-  checkOutButton.onclick = function() {
-    checkOut();
-  };
-  checkOutButton.innerHTML = "Slutför ditt köp";
-  checkOutContainer.appendChild(checkOutButton);
+    if (getCart() && getCart().length) {
+    var checkOutContainer = document.createElement("div");
+    checkOutContainer.classList = "COC";
+    main.appendChild(checkOutContainer);
+    var checkOutImage = document.createElement("img");
+    checkOutImage.classList = "COCIMG";
+    checkOutImage.setAttribute("src", "/assets/checkedOK.png");
+    checkOutImage.onclick = function() {
+      checkOut();
+    };
+    checkOutContainer.appendChild(checkOutImage);
+    var checkOutButton = document.createElement("button");
+    checkOutButton.classList = "COCBUTT";
+    checkOutButton.onclick = function() {
+      checkOut();
+    };
+    checkOutButton.innerHTML = "Slutför ditt köp";
+    checkOutContainer.appendChild(checkOutButton);
+  }
 }
 
 function removeFromCart(title) {
@@ -129,19 +132,21 @@ function removeFromCart(title) {
   console.log(productName);
   cart.splice(productName, 1);
   var json_str = JSON.stringify(cart);
-  localStorage.doList = json_str;
+  localStorage.setItem("doList", json_str);
+  //localStorage.doList = json_str;
   //cartCounter();
-  console.log(cart);
-  location.reload();
+  console.log(getCart());
+
+  addProductsToWebpage();
 }
 
 //Lägger till produkt samt uppdaterar antalet produkter
-function getPriceElement() {
+function getPriceElement(totalPrice) {
   var priceContainer = document.createElement("div");
   var textOutput = document.createElement("p");
   textOutput.classList = "totalPrice";
 
-  if (totalPrice > 0) {
+  if (getCart() && getCart().length) {
     textOutput.innerText = "Totalt pris:" + " " + " " + totalPrice + " " + "kr";
     priceContainer.appendChild(textOutput);
     return priceContainer;
@@ -159,7 +164,7 @@ function checkOut() {
     var json_str = JSON.stringify(cart);
     localStorage.doList = json_str;
     alert("Köp genomfört!");
-    location.reload();
+    addProductsToWebpage();
   }
 
   /*  var cart = getCart()
