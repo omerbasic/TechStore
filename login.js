@@ -1,23 +1,33 @@
-
-   var users = [
+var loggedIn = false;
+var users = [
     {
-    username = "username",
-    password = "password",
-    orders: [
-        {
-        date: 2000-05-23,
-        products: [
+        username: "username",
+        password: "password",
+        orders: [
             {
-                
+            date: 2000-05-23,
+            products: [
+                {
+                    
+                }
+            ]
             }
-        ]
-        }
-    ]
-},
-{
-    username = "ensar",
-    password = "michelle"
-}
+        ]   
+    },
+    {
+        username: "ensar",
+        password: "michelle",
+        orders: [
+            {
+            date: 
+            products: [
+                {
+                    
+                }
+            ]
+            }
+        ]   
+    }
 ]
 
    
@@ -26,18 +36,37 @@
 
 
 
-function validateForm() {
-    var un = document.loginform.usr.value;
-    var pw = document.loginform.pword.value;
-
- 
+function validateForm(value1, value2) {
     
-   
-    if ((un == users.username) && (pw == users.password)) {
-        alert ("success!")
-    }
-    else {
+    console.log(value1, value2)
+    var un = value1;
+    var pw = value2;
+    var userToLogIn = undefined
+
+    users.forEach((user) => {
+        if ((un == user.username) && (pw == user.password)) {
+            userToLogIn = user
+            alert ("success!")
+            console.log(user.orders.date)
+            loggedIn = true;
+            check();
+        }
+    })
+
+    if(!userToLogIn) {
         alert ("Login was unsuccessful, please check your username and password");
-        
+        loggedIn = false;
     }
+}
+
+function check(){
+if (loggedIn = true){
+console.log(loggedIn)
+
+}
+}
+
+function logOut(){
+
+    location.reload();
 }

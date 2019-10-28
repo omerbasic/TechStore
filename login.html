@@ -26,18 +26,14 @@
     </header>
 
     <main>
-      <form
-        name="loginform"
-        onSubmit="return validateForm()"
-    
-        
-        method="get">
+      <form onsubmit="event.preventDefault(); validateForm(usr.value, pword.value);"
         <label>Username</label>
-        <input type="text" name="usr" placeholder="username" />
+        <input type="text" id="usr" placeholder="username" />
         <label>Password</label>
-        <input type="password" name="pword" placeholder="password" />
-        <input type="submit" value="Login" />
+        <input type="password" id="pword" placeholder="password" />
+        <input type="submit" />
       </form>
+
     </main>
   </body>
 </html>
