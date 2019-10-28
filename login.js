@@ -8,7 +8,7 @@ function validateForm() {
     var username = "username"; 
     var password = "password";
     if ((un == username) && (pw == password)) {
-        location.reload();
+        return true;
     }
     else {
         alert ("Login was unsuccessful, please check your username and password");
