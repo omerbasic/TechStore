@@ -1,69 +1,32 @@
-var loggedIn = false;
-var users = [
-    {
-        username: "username",
-        password: "password",
-        orders: [
-            {
-            date: 2000-05-23,
-            products: [
-                {
-                    
-                }
-            ]
-            }
-        ]   
-    },
-    {
-        username: "ensar",
-        password: "michelle",
-        orders: [
-            {
-            date: "",
-            products: [
-                {
-                    
-                }
-            ]
-            }
-        ]   
-    },
-    {
-        username: "",
-        password: ""
-    }
-]
+// Name and Password from the register-form
+var name = document.getElementById('name');
+var pw = document.getElementById('pw');
 
+// storing input from register-form
+function store() {
+    localStorage.setItem('name', name.value);
+    localStorage.setItem('pw', pw.value);
    
+}
 
+// check if stored data from register-form is equal to entered data in the   login-form
+function check() {
 
+    // stored data from the register-form
+    var storedName = localStorage.getItem('name');
+    var storedPw = localStorage.getItem('pw');
 
+    // entered data from the login-form
+    var userName = document.getElementById('userName');
+    var userPw = document.getElementById('userPw');
 
-//För att logga in och lagra användre i localstorage
-function validateForm(value1, value2) {
-    
-    console.log(value1, value2)
-    var un = value1;
-    var pw = value2;
-    var userToLogIn = undefined
-
-    users.forEach((user) => {
-        if ((un == user.username) && (pw == user.password)) {
-            userToLogIn = user
-            alert ("success!")
-            console.log(userToLogIn)
-            loggedIn = true;
-            localStorage.setItem('Current User', userToLogIn);
-            
-            check();
-        }
-    })
-
-    localStorage.removeItem("loggedInUser")
-
-    if(!userToLogIn) {
-        alert ("Login was unsuccessful, please check your username and password");
-        loggedIn = false;
+    // check if stored data from register-form is equal to data from login form
+    if(userName.value == storedName && userPw.value == storedPw) {
+        alert('You are logged in.');
+        console.log(name, pw);
+    }else {
+        alert('Username or password are incorrect');
+        console.log(name, pw);
     }
 }
 
@@ -106,9 +69,3 @@ users[0]['orders'].push({
 users[0]['orders']['products'].push({
     cart
 }) */
-
-// WHAT TO DO
-// Login funktion + lagra i localstorage
-// Registrera användare funktion + pusha in i users array
-// Logout funktion + cleara localstorage
-// for each loop i cart.js för att först kolla användrare och sedan pusha nuvarande cart in i users.orders.products
