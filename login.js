@@ -39,7 +39,7 @@ var users = [
 
 
 
-
+//För att logga in och lagra användre i localstorage
 function validateForm(value1, value2) {
     
     console.log(value1, value2)
@@ -51,10 +51,10 @@ function validateForm(value1, value2) {
         if ((un == user.username) && (pw == user.password)) {
             userToLogIn = user
             alert ("success!")
-            console.log(user.orders.date)
+            console.log(userToLogIn)
             loggedIn = true;
-            localStorage.setItem('name', name.value);
-            localStorage.setItem('pw', pw.value);
+            localStorage.setItem('Current User', userToLogIn);
+            
             check();
         }
     })
@@ -80,6 +80,7 @@ function logOut(){
     location.reload();
 }
 
+//För att registrera ny användare
 function store(username, password){
 
     var newUser =  {
@@ -91,7 +92,7 @@ function store(username, password){
     users.push(newUser)
 }
 
-addOrder()
+//addOrder()
   
 /*   users[0].push({
     name: regName,
@@ -105,3 +106,9 @@ users[0]['orders'].push({
 users[0]['orders']['products'].push({
     cart
 }) */
+
+// WHAT TO DO
+// Login funktion + lagra i localstorage
+// Registrera användare funktion + pusha in i users array
+// Logout funktion + cleara localstorage
+// for each loop i cart.js för att först kolla användrare och sedan pusha nuvarande cart in i users.orders.products
