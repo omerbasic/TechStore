@@ -20,35 +20,35 @@
         "image": "LGV30.png",
         "price": 7495
     },{
-        "title": "LG V30",
-        "description": "Super nice and beautiful smartphone from LG.",
-        "image": "LGV30.png",
-        "price": 7495
+        "title": "Huawei Nova",
+        "description": "Smooth and fast mobile phone from Huawei",
+        "image": "HuaweiNova.png",
+        "price": 5495
     },{
-        "title": "LG V30",
-        "description": "Super nice and beautiful smartphone from LG.",
-        "image": "LGV30.png",
-        "price": 7495
+        "title": "Iphone 5",
+        "description": "And older model from Apple, cheaper but perfect.",
+        "image": "iphone5.png",
+        "price": 3495
     },{
-        "title": "LG V30",
-        "description": "Super nice and beautiful smartphone from LG.",
-        "image": "LGV30.png",
-        "price": 7495
+        "title": "Note 9",
+        "description": "Practical with touch-pen model from Samsung",
+        "image": "SamsungNote.png",
+        "price": 11499
     },{
-        "title": "LG V30",
-        "description": "Super nice and beautiful smartphone from LG.",
-        "image": "LGV30.png",
-        "price": 7495
+        "title": "LG Volt",
+        "description": "Very modern and functional phone from LG.",
+        "image": "LgVolt.png",
+        "price": 6499
     },{
-        "title": "LG V30",
-        "description": "Super nice and beautiful smartphone from LG.",
-        "image": "LGV30.png",
-        "price": 7495
+        "title": "Huawei Y6",
+        "description": "Fast and with great design, best price from Huawei.",
+        "image": "HuaweiY6.png",
+        "price": 4495
     },{
-        "title": "LG V30",
-        "description": "Super nice and beautiful smartphone from LG.",
-        "image": "LGV30.png",
-        "price": 7495
+        "title": "One Plus 7",
+        "description": "Amazing phone with functionality and design",
+        "image": "onePlus7.jpg",
+        "price": 6495
     }
 
 ]
