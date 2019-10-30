@@ -1,47 +1,55 @@
-// Name and Password from the register-form
-var name = document.getElementById('name');
-var pw = document.getElementById('pw');
+var users = [];
+users = JSON.parse(localStorage.getItem("allaAnvändare"));
+console.log(users)
 
-// storing input from register-form
-function store() {
-    localStorage.setItem('name', name.value);
-    localStorage.setItem('pw', pw.value);
-   
-}
 
-// check if stored data from register-form is equal to entered data in the   login-form
-function check() {
 
-    // stored data from the register-form
-    var storedName = localStorage.getItem('name');
-    var storedPw = localStorage.getItem('pw');
+function check(username, password) {
+    
+    var un = username;
+    var pw = password;
+    var userToLogIn = undefined
 
-    // entered data from the login-form
-    var userName = document.getElementById('userName');
-    var userPw = document.getElementById('userPw');
+    users.forEach((user) => {
+        if ((un == user.username) && (pw == user.password)) {
+            userToLogIn = user
+            alert ("success!")
+            console.log(user)
+            loggedIn = true;
+            localStorage.setItem('Current User', JSON.stringify(userToLogIn));;
+            testing();
+        }
+    })
 
-    // check if stored data from register-form is equal to data from login form
-    if(userName.value == storedName && userPw.value == storedPw) {
-        alert('You are logged in.');
-        console.log(name, pw);
-    }else {
-        alert('Username or password are incorrect');
-        console.log(name, pw);
+    if(!userToLogIn) {
+        alert ("Login was unsuccessful, please check your username and password");
+        
+        loggedIn = false;
     }
 }
 
-function check(){
+
+
+function testing(){
 if (loggedIn = true){
 console.log(loggedIn)
+console.log("Hej!")
+
 
 
 }
 }
 
 function logOut(){
-
     location.reload();
+    
 }
+
+
+
+
+
+
 
 //För att registrera ny användare
 function store(username, password){
@@ -49,10 +57,19 @@ function store(username, password){
     var newUser =  {
         username: username,
         password: password,
-        orders: []   
+        orders: [
+            
+        ]   
     }
 
+    users = users|| [];
     users.push(newUser)
+    var allUsers = JSON.stringify(users);
+    localStorage.allaAnvändare = allUsers;
+    console.log(JSON.parse(localStorage.getItem("allaAnvändare")));
+    users = localStorage.getItem("allaAnvändare");
+    location.reload()
+   
 }
 
 //addOrder()

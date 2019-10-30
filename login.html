@@ -26,17 +26,22 @@
     </header>
   <main>
     
-      <form id="register-form"> 
-          <input id="name" type="text" placeholder="Name" value=""/>
-          <input id="pw" type="password" placeholder="Password" value=""/>
-          <input id="rgstr_btn" type="submit" value="get Account" onClick="store()"/> 
+      <form onsubmit="event.preventDefault(); check(uname.value, passw.value)"> 
+          <label>Username</label>
+          <input id="uname" type="text" placeholder="Name" value=""/>
+          <label>Password</label>
+          <input id="passw" type="password" placeholder="Password" value=""/>
+          <input id="login_btn" type="submit"/> 
       </form>
       
-      <form id="login-form"> 
-          <input id="userName" type="text" placeholder="Enter Username" value=""/>
-          <input id="userPw" type="password" placeholder="Enter Password" value=""/>
-          <input id="login_btn" type="submit" value="Login" onClick="check()"/> 
-      </form>
+      
+<form onsubmit="event.preventDefault(); store(regname.value, pw.value)"> 
+      <label>Registrera Användarnman</label>
+      <input id="regname" type="text" placeholder="Name" value=""/>
+      <label >Registrera lösenord></label>
+      <input id="pw" type="password" placeholder="Password" value=""/>
+      <input id="rgstr_btn" type="submit" /> 
+</form>
       
     
       
