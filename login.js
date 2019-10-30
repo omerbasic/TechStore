@@ -14,10 +14,10 @@ function check(username, password) {
         if ((un == user.username) && (pw == user.password)) {
             userToLogIn = user
             alert ("success!")
-            console.log(user)
+            
             loggedIn = true;
             localStorage.setItem('Current User', JSON.stringify(userToLogIn));;
-            testing();
+            testing(user);
         }
     })
 
@@ -30,10 +30,11 @@ function check(username, password) {
 
 
 
-function testing(){
+function testing(user){
 if (loggedIn = true){
 console.log(loggedIn)
 console.log("Hej!")
+console.log(user)
 
 
 
@@ -57,9 +58,7 @@ function store(username, password){
     var newUser =  {
         username: username,
         password: password,
-        orders: [
-            
-        ]   
+        orders: []   
     }
 
     users = users|| [];

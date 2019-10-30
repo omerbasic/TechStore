@@ -13,6 +13,14 @@
 function getCart() {
   return JSON.parse(localStorage.getItem("doList"));
 }
+function getUsers(){
+  return JSON.parse(localStorage.getItem("allaAnvändare"));
+}
+function getCurrentUser(){
+  return JSON.parse(localStorage.getItem("Current User"));
+}
+
+
 
 var emptyCart = [];
 
@@ -145,7 +153,7 @@ function getPriceElement(totalPrice) {
   var priceContainer = document.createElement("div");
   var textOutput = document.createElement("p");
   textOutput.classList = "totalPrice";
-
+  
   if (getCart() && getCart().length) {
     textOutput.innerText = "Totalt pris:" + " " + " " + totalPrice + " " + "kr";
     priceContainer.appendChild(textOutput);
@@ -158,15 +166,37 @@ function getPriceElement(totalPrice) {
 }
 
 function checkOut() {
+  addToUser(cart);
   if (confirm("Vill du slutföra ditt köp?")) {
+
     var cart = getCart();
+    
     cart.splice(0, cart.length);
     var json_str = JSON.stringify(cart);
     localStorage.doList = json_str;
     alert("Köp genomfört!");
-    addProductsToWebpage();
+    //addProductsToWebpage();
 
     
+  }
+
+  function addToUser(cart){
+    var modifiedLoggedInUser
+    var users = getUsers()
+    users.forEach((user) => {
+      if ((getUsers().username == getCurrentUser().username) && (getUsers().password == getCurrentUser().password)) {
+        modifiedLoggedInUser = user
+        var order = {
+          date: new Date(),
+          products: cart
+        }
+        user.orders.push(order)
+        console.log(getCurrentUser());
+      }
+    })
+
+
+    return false
   }
 
   /*  var cart = getCart()
