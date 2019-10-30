@@ -26,20 +26,22 @@
     </header>
   <main>
     
-      <form onsubmit="event.preventDefault(); check(uname.value, passw.value)"> 
+      <form onsubmit="event.preventDefault(); check(uname.value, passw.value)" id="loginForm"> 
+        <h2>Login</h2>
           <label>Username</label>
-          <input id="uname" type="text" placeholder="Name" value=""/>
+          <input id="uname" type="text" placeholder="Name" value=""/> <br>
           <label>Password</label>
-          <input id="passw" type="password" placeholder="Password" value=""/>
+          <input id="passw" type="password" placeholder="Password" value=""/> <br>
           <input id="login_btn" type="submit"/> 
       </form>
       
       
-<form onsubmit="event.preventDefault(); store(regname.value, pw.value)"> 
-      <label>Registrera Användarnman</label>
-      <input id="regname" type="text" placeholder="Name" value=""/>
-      <label >Registrera lösenord></label>
-      <input id="pw" type="password" placeholder="Password" value=""/>
+<form onsubmit="event.preventDefault(); store(regname.value, pw.value)" id="regForm"> 
+     <h2>Register</h2>
+      <label>Username</label>
+      <input id="regname" type="text" placeholder="Name" value=""/> <br>
+      <label >Password</label>
+      <input id="pw" type="password" placeholder="Password" value=""/> <br>
       <input id="rgstr_btn" type="submit" /> 
 </form>
       
