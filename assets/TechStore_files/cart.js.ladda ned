@@ -1,24 +1,38 @@
+/** Get products from the json file and store it in a gobal variable */
+/* function loadProducts() {
+    fetch("./products.json")
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(products) {
+        loopArray = products;
+        addProductsToWebpage();
+    });
+} */
 
 function getCart() {
   return JSON.parse(localStorage.getItem("doList"));
 }
-function getUsers() {
+function getUsers(){
   return JSON.parse(localStorage.getItem("allaAnvändare"));
 }
-function getCurrentUser() {
+function getCurrentUser(){
   return JSON.parse(localStorage.getItem("Current User"));
 }
+
+
 
 var emptyCart = [];
 
 function initSite() {
- 
+  //loadProducts();
+  // This would also be a good place to initialize other parts of the UI
 
   addProductsToWebpage();
 }
 
 function addProductsToWebpage() {
-
+  // Check your console to see that the products are stored in the listOfProducts varible.
 
   document.getElementById("itemcounter").innerHTML = getCart().length;
   var main = document.getElementsByTagName("main")[0];
@@ -39,21 +53,22 @@ function addProductsToWebpage() {
   container.classList = "container";
   main.appendChild(container);
 
-  
+  //** This loop is supposed to create a div for each product and also fill the div with relevant information */
   for (var i = 0; i < getCart().length; i++) {
     var selectedProduct = getCart()[i];
     console.log(selectedProduct);
     totalPrice += selectedProduct.price;
     console.log(totalPrice);
 
-  
+    var productCard = document.createElement("div");
+    productCard.classList = "PCdiv";
 
     var infolist = document.createElement("div");
     infolist.classList = "infodiv";
 
     var imageListItem = document.createElement("img");
 
-    
+    //Eftersom att bilderna inte ligger i rootmappen görs detta för att filsökvägen ska funka ordentligt
     imageListItem.classList = "productImage";
     var titleListItem = document.createElement("h1");
     var priceListItem = document.createElement("h4");
@@ -87,14 +102,15 @@ function addProductsToWebpage() {
     buttonDiv.appendChild(buttonImg);
     buttonDiv.appendChild(buttonListItem);
 
-  
+    //productCard.appendChild(infolist);
     container.appendChild(infolist);
   }
+  
+    var totalPriceContainer = getPriceElement(totalPrice);
+    main.appendChild(totalPriceContainer);
+    
 
-  var totalPriceContainer = getPriceElement(totalPrice);
-  main.appendChild(totalPriceContainer);
-
-  if (getCart() && getCart().length) {
+    if (getCart() && getCart().length) {
     var checkOutContainer = document.createElement("div");
     checkOutContainer.classList = "COC";
     main.appendChild(checkOutContainer);
@@ -119,23 +135,25 @@ function removeFromCart(title) {
   var cart = getCart();
   var productName = title;
 
- 
+  // Loop, if sats title == title
 
   console.log(productName);
   cart.splice(productName, 1);
   var json_str = JSON.stringify(cart);
   localStorage.setItem("doList", json_str);
+  //localStorage.doList = json_str;
+  //cartCounter();
   console.log(getCart());
 
   addProductsToWebpage();
 }
 
-
+//Lägger till produkt samt uppdaterar antalet produkter
 function getPriceElement(totalPrice) {
   var priceContainer = document.createElement("div");
   var textOutput = document.createElement("p");
   textOutput.classList = "totalPrice";
-
+  
   if (getCart() && getCart().length) {
     textOutput.innerText = "Totalt pris:" + " " + " " + totalPrice + " " + "kr";
     priceContainer.appendChild(textOutput);
@@ -148,41 +166,67 @@ function getPriceElement(totalPrice) {
 }
 
 function checkOut() {
+  
+  
   if (confirm("Vill du slutföra ditt köp?")) {
     var cart = getCart();
     addToUser(cart);
-
+    
     cart.splice(0, cart.length);
     var json_str = JSON.stringify(cart);
     localStorage.doList = json_str;
     alert("Köp genomfört!");
-    addProductsToWebpage();
+    //addProductsToWebpage();
 
     
   }
 
-  function addToUser(cart) {
-    console.log("Hej");
-    var modifiedLoggedInUser;
-    var users = getUsers();
-    var nowDate = new Date();
-    users.forEach(user => {
-      if (
-        user.username == getCurrentUser().username &&
-        user.password == getCurrentUser().password
-      ) {
-        modifiedLoggedInUser = user;
+  function addToUser(cart){
+    console.log("Hej")
+    var modifiedLoggedInUser
+    var users = getUsers()
+    users.forEach((user) => {
+      if ((user.username == getCurrentUser().username) && (user.password == getCurrentUser().password)) {
+        modifiedLoggedInUser = user
         var order = {
-          date: nowDate.toDateString(),
+          date: new Date(),
           products: cart
-        };
-        user.orders.push(order);
-        localStorage.setItem("Current User", JSON.stringify(user));
-        localStorage.setItem("allaAnvändare", JSON.stringify(users));
+        }
+        user.orders.push(order)
+        localStorage.setItem('Current User', JSON.stringify(user));;
+        localStorage.setItem('allaAnvändare', JSON.stringify(users));;
       }
-    });
+    })
+
+
+    
   }
 
- 
+  /*  var cart = getCart()
+    cart.splice(0, cart.length);
+    var	json_str	=	JSON.stringify(cart);	
+    localStorage.doList	=	json_str;	
+    location.reload();
+    testFunction();
+ */
 }
 
+/* function testFunction(){
+   if (confirm){
+    var cart = getCart()
+    cart.splice(0, cart.length);
+    var	json_str	=	JSON.stringify(cart);	
+    localStorage.doList	=	json_str;	
+    location.reload();
+    testFunction();
+   }
+  
+ } */
+
+/* function cartCounter () {
+    document.getElementById("itemcounter").innerHTML = getCart().lenght;
+  } */
+
+// ISSUE TO FIX:
+// div.PriceContainer CANNOT BE child element to main container
+// Otherwise the price will be on the side (flex box) and we want it to be at the bottom

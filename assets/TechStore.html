@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://127.0.0.1:5501/kundvagn.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>TechStore</title>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./TechStore_files/style.css">
+    <link rel="stylesheet" href="./TechStore_files/cart_style.css">
+
+    <!-- Visit www.fontawesome.com on how to add font icons to your project -->
+    <!-- Link your stylesheet file/files, do NOT write styles in the html file! -->
+    <script src="./TechStore_files/cart.js.ladda ned"></script>
+  </head>
+  <body onload="initSite()">
+    <header>
+      <div id="title">
+        <h1><a href="http://127.0.0.1:5501/index.html">TechStore</a></h1>
+        <h1><a href="http://127.0.0.1:5501/login.html">login</a></h1>
+      </div>
+
+      <div id="cart">
+        <!--Here is the code for the cart-->
+        <div id="itemcounter">0</div>
+        <!--Here is the code for the cart-->
+
+        <a href="http://127.0.0.1:5501/kundvagn.html"><img src="./TechStore_files/white_cart.png" id="carticon"></a>
+      </div>
+    </header>
+
+    <main><div class="cartContainer"><img class="cartImg" src="./TechStore_files/cart_img.png"><h1 class="cartTitle">Kundvagn</h1></div><div class="container"></div><div><p class="totalPrice">Din varukorg är tom</p></div></main>
+  <!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>

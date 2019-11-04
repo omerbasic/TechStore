@@ -45,12 +45,6 @@ header {
 
 #title {
   margin-left: 2%;
-  display:flex;
-}
-
-h4 {
-  margin-left: 20px;
-  margin-top: 34px;
 }
 
 #cart {
@@ -75,7 +69,5 @@ a {
   text-decoration: none;
 }
 
-#title a:hover {
-  background-color: white;
-  color:black;
+.buttonDiv {
 }
