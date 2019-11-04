@@ -45,6 +45,12 @@ header {
 
 #title {
   margin-left: 2%;
+  display:flex;
+}
+
+h4 {
+  margin-left: 20px;
+  margin-top: 34px;
 }
 
 #cart {
