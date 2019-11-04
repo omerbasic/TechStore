@@ -34,26 +34,23 @@ function loadUserPage() {
     var ordersToPrint = getCurrentUser().orders
     console.log(ordersToPrint)
 
+   
+
     for (var i = 0; i < ordersToPrint.length; i++) {
+        console.log(i);
+        console.log(ordersToPrint);
         var selectedOrder = ordersToPrint[i];
-
-       
-
-       
-
         var orderDate = document.createElement("p");
-
         var orderBox = document.createElement("div");
         orderDate.innerText = selectedOrder.date;
+        
 
 
-        orderContainer.appendChild(orderDate)
-        orderContainer.appendChild(orderBox)
-
-
-        for (var i = 0; i < selectedOrder.products.length; i++) {
-            var selectedOrderProduct = selectedOrder.products[i];
-
+        for (var j = 0; j < selectedOrder.products.length; j++) {
+            var selectedOrderProduct = selectedOrder.products[j];
+            var testParagraf = document.createElement("p");
+            testParagraf.innerText = selectedOrderProduct.title
+            orderBox.appendChild(testParagraf);
 
             var productCard = document.createElement("div");
             productCard.classList = "PCdiv";
@@ -96,20 +93,12 @@ function loadUserPage() {
             infolist.appendChild(buttonDiv);
             buttonDiv.appendChild(buttonImg);
             buttonDiv.appendChild(buttonListItem);
+            orderBox.appendChild(infolist); 
 
-            //productCard.appendChild(infolist);
-            orderBox.appendChild(infolist);
+        } 
 
-        }
-
-
+        orderContainer.appendChild(orderDate)
+        orderContainer.appendChild(orderBox)
     }
     
-
-
-
-
-
-
-
 } 
