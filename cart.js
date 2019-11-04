@@ -161,6 +161,8 @@ function checkOut() {
     localStorage.doList = json_str;
     alert("Köp genomfört!");
     addProductsToWebpage();
+
+    
   }
 
   function addToUser(cart) {
