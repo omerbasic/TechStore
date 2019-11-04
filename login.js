@@ -1,6 +1,6 @@
 var users = [];
 users = JSON.parse(localStorage.getItem("allaAnvändare"));
-console.log(users)
+
 
 
 
@@ -13,7 +13,7 @@ function check(username, password) {
     users.forEach((user) => {
         if ((un == user.username) && (pw == user.password)) {
             userToLogIn = user
-            alert ("success!")
+            
             
             loggedIn = true;
             localStorage.setItem('Current User', JSON.stringify(userToLogIn));;
@@ -38,10 +38,13 @@ console.log(user)
 
 
 
+
 }
 }
 
 function logOut(){
+
+    localStorage.removeItem('Current User');
     location.reload();
     
 }
@@ -65,9 +68,8 @@ function store(username, password){
     users.push(newUser)
     var allUsers = JSON.stringify(users);
     localStorage.allaAnvändare = allUsers;
-    console.log(JSON.parse(localStorage.getItem("allaAnvändare")));
     users = localStorage.getItem("allaAnvändare");
-    location.reload()
+    location.reload();
    
 }
 

@@ -166,10 +166,11 @@ function getPriceElement(totalPrice) {
 }
 
 function checkOut() {
-  addToUser(cart);
+  
+  
   if (confirm("Vill du slutföra ditt köp?")) {
-
     var cart = getCart();
+    addToUser(cart);
     
     cart.splice(0, cart.length);
     var json_str = JSON.stringify(cart);
@@ -181,22 +182,24 @@ function checkOut() {
   }
 
   function addToUser(cart){
+    console.log("Hej")
     var modifiedLoggedInUser
     var users = getUsers()
     users.forEach((user) => {
-      if ((getUsers().username == getCurrentUser().username) && (getUsers().password == getCurrentUser().password)) {
+      if ((user.username == getCurrentUser().username) && (user.password == getCurrentUser().password)) {
         modifiedLoggedInUser = user
         var order = {
           date: new Date(),
           products: cart
         }
         user.orders.push(order)
-        console.log(getCurrentUser());
+        localStorage.setItem('Current User', JSON.stringify(user));;
+        localStorage.setItem('allaAnvändare', JSON.stringify(users));;
       }
     })
 
 
-    return false
+    
   }
 
   /*  var cart = getCart()
