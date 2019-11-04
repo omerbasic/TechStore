@@ -35,7 +35,7 @@ if (loggedIn = true){
 console.log(loggedIn)
 console.log("Hej!")
 console.log(user)
-
+location.replace("userpage.html")
 
 
 

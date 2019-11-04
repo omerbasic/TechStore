@@ -1,0 +1,73 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  min-height: 10em;
+  align-items: center;
+  padding: 65px 16px;
+}
+
+div {
+  align-content: center;
+  text-align: center;
+}
+ul {
+  padding: 5;
+  padding-inline-start: 0;
+}
+
+.PCdiv {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+img.productImage {
+  height: 50vh;
+  width: auto;
+}
+
+header {
+  background-color: #212121;
+  width: 100vw;
+  position: fixed;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  left: 0;
+}
+
+#title {
+  margin-left: 2%;
+}
+
+#cart {
+  margin-right: 4%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#carticon {
+  width: 170%;
+  margin-top: 25%;
+}
+
+#itemcounter {
+  font-size: 40px;
+}
+a:visited {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+.buttonDiv {
+}
