@@ -1,26 +1,13 @@
-/** Get products from the json file and store it in a gobal variable */
-/* function loadProducts() {
-    fetch("./products.json")
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(products) {
-        loopArray = products;
-        addProductsToWebpage();
-    });
-} */
-
+//These functions return the data in local storage on demand
 function getCart() {
   return JSON.parse(localStorage.getItem("doList"));
 }
-function getUsers(){
+function getUsers() {
   return JSON.parse(localStorage.getItem("allaAnvändare"));
 }
-function getCurrentUser(){
+function getCurrentUser() {
   return JSON.parse(localStorage.getItem("Current User"));
 }
-
-
 
 var emptyCart = [];
 
@@ -60,8 +47,8 @@ function addProductsToWebpage() {
     totalPrice += selectedProduct.price;
     console.log(totalPrice);
 
-    var productCard = document.createElement("div");
-    productCard.classList = "PCdiv";
+    /* var productCard = document.createElement("div");
+    productCard.classList = "PCdiv"; */
 
     var infolist = document.createElement("div");
     infolist.classList = "infodiv";
@@ -105,12 +92,11 @@ function addProductsToWebpage() {
     //productCard.appendChild(infolist);
     container.appendChild(infolist);
   }
-  
-    var totalPriceContainer = getPriceElement(totalPrice);
-    main.appendChild(totalPriceContainer);
-    
 
-    if (getCart() && getCart().length) {
+  var totalPriceContainer = getPriceElement(totalPrice);
+  main.appendChild(totalPriceContainer);
+
+  if (getCart() && getCart().length) {
     var checkOutContainer = document.createElement("div");
     checkOutContainer.classList = "COC";
     main.appendChild(checkOutContainer);
@@ -153,7 +139,7 @@ function getPriceElement(totalPrice) {
   var priceContainer = document.createElement("div");
   var textOutput = document.createElement("p");
   textOutput.classList = "totalPrice";
-  
+
   if (getCart() && getCart().length) {
     textOutput.innerText = "Totalt pris:" + " " + " " + totalPrice + " " + "kr";
     priceContainer.appendChild(textOutput);
@@ -166,40 +152,36 @@ function getPriceElement(totalPrice) {
 }
 
 function checkOut() {
-  
-  
   if (confirm("Vill du slutföra ditt köp?")) {
     var cart = getCart();
     addToUser(cart);
-    
+
     cart.splice(0, cart.length);
     var json_str = JSON.stringify(cart);
     localStorage.doList = json_str;
     alert("Köp genomfört!");
-    //addProductsToWebpage();
-
-    
+    addProductsToWebpage();
   }
 
-  function addToUser(cart){
-    console.log("Hej")
-    var modifiedLoggedInUser
-    var users = getUsers()
-    users.forEach((user) => {
-      if ((user.username == getCurrentUser().username) && (user.password == getCurrentUser().password)) {
-        modifiedLoggedInUser = user
+  function addToUser(cart) {
+    console.log("Hej");
+    var modifiedLoggedInUser;
+    var users = getUsers();
+    users.forEach(user => {
+      if (
+        user.username == getCurrentUser().username &&
+        user.password == getCurrentUser().password
+      ) {
+        modifiedLoggedInUser = user;
         var order = {
           date: new Date(),
           products: cart
-        }
-        user.orders.push(order)
-        localStorage.setItem('Current User', JSON.stringify(user));;
-        localStorage.setItem('allaAnvändare', JSON.stringify(users));;
+        };
+        user.orders.push(order);
+        localStorage.setItem("Current User", JSON.stringify(user));
+        localStorage.setItem("allaAnvändare", JSON.stringify(users));
       }
-    })
-
-
-    
+    });
   }
 
   /*  var cart = getCart()
