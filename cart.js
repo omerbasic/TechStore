@@ -1,4 +1,4 @@
-//These functions return the data in local storage on demand
+
 function getCart() {
   return JSON.parse(localStorage.getItem("doList"));
 }
@@ -12,14 +12,13 @@ function getCurrentUser() {
 var emptyCart = [];
 
 function initSite() {
-  //loadProducts();
-  // This would also be a good place to initialize other parts of the UI
+ 
 
   addProductsToWebpage();
 }
 
 function addProductsToWebpage() {
-  // Check your console to see that the products are stored in the listOfProducts varible.
+
 
   document.getElementById("itemcounter").innerHTML = getCart().length;
   var main = document.getElementsByTagName("main")[0];
@@ -40,22 +39,21 @@ function addProductsToWebpage() {
   container.classList = "container";
   main.appendChild(container);
 
-  //** This loop is supposed to create a div for each product and also fill the div with relevant information */
+  
   for (var i = 0; i < getCart().length; i++) {
     var selectedProduct = getCart()[i];
     console.log(selectedProduct);
     totalPrice += selectedProduct.price;
     console.log(totalPrice);
 
-    /* var productCard = document.createElement("div");
-    productCard.classList = "PCdiv"; */
+  
 
     var infolist = document.createElement("div");
     infolist.classList = "infodiv";
 
     var imageListItem = document.createElement("img");
 
-    //Eftersom att bilderna inte ligger i rootmappen görs detta för att filsökvägen ska funka ordentligt
+    
     imageListItem.classList = "productImage";
     var titleListItem = document.createElement("h1");
     var priceListItem = document.createElement("h4");
@@ -89,7 +87,7 @@ function addProductsToWebpage() {
     buttonDiv.appendChild(buttonImg);
     buttonDiv.appendChild(buttonListItem);
 
-    //productCard.appendChild(infolist);
+  
     container.appendChild(infolist);
   }
 
@@ -121,20 +119,18 @@ function removeFromCart(title) {
   var cart = getCart();
   var productName = title;
 
-  // Loop, if sats title == title
+ 
 
   console.log(productName);
   cart.splice(productName, 1);
   var json_str = JSON.stringify(cart);
   localStorage.setItem("doList", json_str);
-  //localStorage.doList = json_str;
-  //cartCounter();
   console.log(getCart());
 
   addProductsToWebpage();
 }
 
-//Lägger till produkt samt uppdaterar antalet produkter
+
 function getPriceElement(totalPrice) {
   var priceContainer = document.createElement("div");
   var textOutput = document.createElement("p");
@@ -169,6 +165,7 @@ function checkOut() {
     console.log("Hej");
     var modifiedLoggedInUser;
     var users = getUsers();
+    var nowDate = new Date();
     users.forEach(user => {
       if (
         user.username == getCurrentUser().username &&
@@ -176,7 +173,7 @@ function checkOut() {
       ) {
         modifiedLoggedInUser = user;
         var order = {
-          date: new Date(),
+          date: nowDate.toDateString(),
           products: cart
         };
         user.orders.push(order);
@@ -186,31 +183,6 @@ function checkOut() {
     });
   }
 
-  /*  var cart = getCart()
-    cart.splice(0, cart.length);
-    var	json_str	=	JSON.stringify(cart);	
-    localStorage.doList	=	json_str;	
-    location.reload();
-    testFunction();
- */
+ 
 }
 
-/* function testFunction(){
-   if (confirm){
-    var cart = getCart()
-    cart.splice(0, cart.length);
-    var	json_str	=	JSON.stringify(cart);	
-    localStorage.doList	=	json_str;	
-    location.reload();
-    testFunction();
-   }
-  
- } */
-
-/* function cartCounter () {
-    document.getElementById("itemcounter").innerHTML = getCart().lenght;
-  } */
-
-// ISSUE TO FIX:
-// div.PriceContainer CANNOT BE child element to main container
-// Otherwise the price will be on the side (flex box) and we want it to be at the bottom

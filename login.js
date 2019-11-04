@@ -66,17 +66,4 @@ function store(username, password) {
           }
 }
 
-//addOrder()
 
-/*   users[0].push({
-    name: regName,
-    age: regPw
-  });
-}
-
-users[0]['orders'].push({
-    date: Date
-})
-users[0]['orders']['products'].push({
-    cart
-}) */

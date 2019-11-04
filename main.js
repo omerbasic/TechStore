@@ -1,5 +1,5 @@
 var listOfProducts;
-//var antalProd = 0;
+
 var iKundvagn = [];
 
 /** Get products from the json file and store it in a gobal variable */
@@ -18,7 +18,7 @@ function initSite() {
   // Skriver ut antalet varor i kundvagn vilket är satt till 0 när sidan laddas
 
   loadProducts();
-  // This would also be a good place to initialize other parts of the UI
+  
   iKundvagn = JSON.parse(localStorage.doList);
   document.getElementById("itemcounter").innerHTML = iKundvagn.length;
   console.log(iKundvagn);
@@ -26,7 +26,7 @@ function initSite() {
 
 /** Uses the loaded products data to create a visible product list on the website */
 function addProductsToWebpage() {
-  // Check your console to see that the products are stored in the listOfProducts varible.
+ 
   console.log(listOfProducts);
   var main = document.getElementsByTagName("main")[0];
 
@@ -87,13 +87,11 @@ function addProductsToWebpage() {
 }
 
 function addToCart(title) {
-  //console.log(title + " " + description + image + price)
-  //localStorage.setItem(title, description);
-  // console.log(listOfProducts)
+  
 
   var productToAdd = title;
 
-  // Loop, if sats title == title
+ 
   for (var i = 0; i < listOfProducts.length; i++) {
     if (productToAdd == listOfProducts[i].title) {
       iKundvagn.push(listOfProducts[i]);
@@ -104,14 +102,10 @@ function addToCart(title) {
     }
   }
 
-  // Add your code here, remember to brake your code in to smaller function blocks
-  // to reduce complexity and increase readability. Each function should have
-  // an explainetory comment like the one for this function, see row 22.
 
-  // TODO: Remove the console.log and these comments when you've read them.
 }
 //Lägger till produkt samt uppdaterar antalet produkter
 function räknare() {
-  //antalProd++;
+ 
   document.getElementById("itemcounter").innerHTML = iKundvagn.length;
 }

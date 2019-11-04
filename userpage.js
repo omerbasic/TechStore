@@ -14,8 +14,6 @@ function initSite() {
     }
 
 }
- // TO DO!!!!!!!!
- /* JUST THE FIRST ORDER APPEAR ON USERPAGE - > WE WANT TO SEE ALL PREVIOUS ORDERS */
 
 function loadUserPage() {
     var main = document.getElementById("main");
@@ -29,7 +27,7 @@ function loadUserPage() {
     welcomeTitle.classList = "welcomeTitle";
     orderContainer.classList = "orderContainer";
 
-    welcomeTitle.innerText = "Welcome to your cart";
+    welcomeTitle.innerText = "Welcome to your cart" + " " + getCurrentUser().username;
 
     var ordersToPrint = getCurrentUser().orders
     console.log(ordersToPrint)
@@ -41,8 +39,11 @@ function loadUserPage() {
         console.log(ordersToPrint);
         var selectedOrder = ordersToPrint[i];
         var orderDate = document.createElement("p");
+        orderDate.classList = "dateContainer";
         var orderBox = document.createElement("div");
+        orderBox.classList = "ordersBox";
         orderDate.innerText = selectedOrder.date;
+
         
 
 
@@ -55,45 +56,10 @@ function loadUserPage() {
             var productCard = document.createElement("div");
             productCard.classList = "PCdiv";
 
-            var infolist = document.createElement("div");
-            infolist.classList = "infodiv";
+           var infolist = document.createElement("div");
+           infolist.classList = "infodiv";
 
-            var imageListItem = document.createElement("img");
-
-            //Eftersom att bilderna inte ligger i rootmappen görs detta för att filsökvägen ska funka ordentligt
-            imageListItem.classList = "productImage";
-            var titleListItem = document.createElement("h1");
-            var priceListItem = document.createElement("h4");
-            var buttonDiv = document.createElement("div");
-
-            imageListItem.setAttribute("src", "/assets/" + selectedOrderProduct.image);
-            var buttonImg = document.createElement("img");
-            buttonImg.setAttribute("src", "/assets/trash.png");
-            var buttonListItem = document.createElement("button");
-            buttonImg.classList = "imgL";
-            buttonDiv.classList = "bDiv";
-            buttonListItem.classList = "addButton";
-            buttonListItem.num = i;
-            buttonListItem.onclick = function () {
-                removeFromCart(this.num);
-            };
-            buttonImg.onclick = function () {
-                removeFromCart(this.num);
-            };
-
-            titleListItem.innerText = selectedOrderProduct.title;
-
-            imageListItem.innerText = selectedOrderProduct.image;
-            priceListItem.innerText = selectedOrderProduct.price + " kr";
-            buttonListItem.innerHTML = "Ta bort";
-
-            infolist.appendChild(imageListItem);
-            infolist.appendChild(titleListItem);
-            infolist.appendChild(priceListItem);
-            infolist.appendChild(buttonDiv);
-            buttonDiv.appendChild(buttonImg);
-            buttonDiv.appendChild(buttonListItem);
-            orderBox.appendChild(infolist); 
+          
 
         } 
 
