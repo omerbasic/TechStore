@@ -18,8 +18,10 @@ function initSite() {
   // Skriver ut antalet varor i kundvagn vilket är satt till 0 när sidan laddas
 
   loadProducts();
-  
-  iKundvagn = JSON.parse(localStorage.doList);
+  var cart = localStorage.doList
+  if(cart) {
+    iKundvagn = JSON.parse(cart)
+  }
   document.getElementById("itemcounter").innerHTML = iKundvagn.length;
   console.log(iKundvagn);
 }

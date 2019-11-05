@@ -1,6 +1,6 @@
 
 function getCart() {
-  return JSON.parse(localStorage.getItem("doList"));
+  return JSON.parse(localStorage.getItem("doList")) || []
 }
 function getUsers() {
   return JSON.parse(localStorage.getItem("allaAnvändare"));

@@ -1,5 +1,5 @@
 var users = [];
-users = JSON.parse(localStorage.getItem("allaAnvändare"));
+users = JSON.parse(localStorage.getItem("allaAnvändare")) || [];
 
 function check(username, password) {
   var un = username;
