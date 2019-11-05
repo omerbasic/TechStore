@@ -66,5 +66,40 @@ function loadUserPage() {
         orderContainer.appendChild(orderDate)
         orderContainer.appendChild(orderBox)
     }
+
+
+    var butLogOut = document.createElement("button");
+    main.appendChild(butLogOut);
+    butLogOut.classList = "logoutButton"
+    butLogOut.onclick = function() {
+        localStorage.removeItem("Current User");
+        window.location = "./login.html"
+    };
+    butLogOut.innerHTML = "Log Out"
+
     
 } 
+
+
+
+
+
+
+
+
+
+
+
+/* function checkOut() {
+  if (confirm("Vill du slutföra ditt köp?")) {
+    var cart = getCart();
+    addToUser(cart);
+
+    cart.splice(0, cart.length);
+    var json_str = JSON.stringify(cart);
+    localStorage.doList = json_str;
+    alert("Köp genomfört!");
+    addProductsToWebpage(); */
+
+    
+  

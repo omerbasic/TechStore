@@ -7,3 +7,15 @@
     background-color: black;
     color:white;
 }
+
+.logoutButton {
+    background-color: #5596F5;
+    color:white;
+    border: none;
+    padding: 9px;
+    font-size: 1.1em;
+    border-radius: 10px;
+    margin-top: 50px;
+    float: right;
+    
+}
