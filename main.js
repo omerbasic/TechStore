@@ -18,18 +18,15 @@ function initSite() {
   // Skriver ut antalet varor i kundvagn vilket är satt till 0 när sidan laddas
 
   loadProducts();
-  var cart = localStorage.doList
-  if(cart) {
-    iKundvagn = JSON.parse(cart)
+  var cart = localStorage.doList;
+  if (cart) {
+    iKundvagn = JSON.parse(cart);
   }
   document.getElementById("itemcounter").innerHTML = iKundvagn.length;
-  console.log(iKundvagn);
 }
 
 /** Uses the loaded products data to create a visible product list on the website */
 function addProductsToWebpage() {
- 
-  console.log(listOfProducts);
   var main = document.getElementsByTagName("main")[0];
 
   var container = document.createElement("div");
@@ -89,11 +86,8 @@ function addProductsToWebpage() {
 }
 
 function addToCart(title) {
-  
-
   var productToAdd = title;
 
- 
   for (var i = 0; i < listOfProducts.length; i++) {
     if (productToAdd == listOfProducts[i].title) {
       iKundvagn.push(listOfProducts[i]);
@@ -103,11 +97,8 @@ function addToCart(title) {
       räknare();
     }
   }
-
-
 }
 //Lägger till produkt samt uppdaterar antalet produkter
 function räknare() {
- 
   document.getElementById("itemcounter").innerHTML = iKundvagn.length;
 }

@@ -1,6 +1,5 @@
-
 function getCart() {
-  return JSON.parse(localStorage.getItem("doList")) || []
+  return JSON.parse(localStorage.getItem("doList")) || [];
 }
 function getUsers() {
   return JSON.parse(localStorage.getItem("allaAnvändare"));
@@ -12,14 +11,10 @@ function getCurrentUser() {
 var emptyCart = [];
 
 function initSite() {
- 
-
   addProductsToWebpage();
 }
 
 function addProductsToWebpage() {
-
-
   document.getElementById("itemcounter").innerHTML = getCart().length;
   var main = document.getElementsByTagName("main")[0];
   main.innerHTML = "";
@@ -39,21 +34,15 @@ function addProductsToWebpage() {
   container.classList = "container";
   main.appendChild(container);
 
-  
   for (var i = 0; i < getCart().length; i++) {
     var selectedProduct = getCart()[i];
-    console.log(selectedProduct);
     totalPrice += selectedProduct.price;
-    console.log(totalPrice);
-
-  
 
     var infolist = document.createElement("div");
     infolist.classList = "infodiv";
 
     var imageListItem = document.createElement("img");
 
-    
     imageListItem.classList = "productImage";
     var titleListItem = document.createElement("h1");
     var priceListItem = document.createElement("h4");
@@ -87,7 +76,6 @@ function addProductsToWebpage() {
     buttonDiv.appendChild(buttonImg);
     buttonDiv.appendChild(buttonListItem);
 
-  
     container.appendChild(infolist);
   }
 
@@ -119,17 +107,12 @@ function removeFromCart(title) {
   var cart = getCart();
   var productName = title;
 
- 
-
-  console.log(productName);
   cart.splice(productName, 1);
   var json_str = JSON.stringify(cart);
   localStorage.setItem("doList", json_str);
-  console.log(getCart());
 
   addProductsToWebpage();
 }
-
 
 function getPriceElement(totalPrice) {
   var priceContainer = document.createElement("div");
@@ -150,21 +133,18 @@ function getPriceElement(totalPrice) {
 function checkOut() {
   if (confirm("Vill du slutföra ditt köp?")) {
     var cart = getCart();
-    if (getCurrentUser() != null){
-    addToUser(cart);
-  }
-  
+    if (getCurrentUser() != null) {
+      addToUser(cart);
+    }
+
     cart.splice(0, cart.length);
     var json_str = JSON.stringify(cart);
     localStorage.doList = json_str;
     alert("Köp genomfört!");
     addProductsToWebpage();
-
-    
   }
 
   function addToUser(cart) {
-    
     var modifiedLoggedInUser;
     var users = getUsers();
     var nowDate = new Date();
@@ -186,4 +166,3 @@ function checkOut() {
   }
   cart.splice(0, cart.length);
 }
-
