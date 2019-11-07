@@ -1,4 +1,4 @@
-# TechStore  GRUPP 7 (Michelle, Frida, Ensar)
+﻿# TechStore  GRUPP 7 (Michelle, Frida, Ensar)
 Gruppuppgift - Techstore
 
 
@@ -8,3 +8,5 @@ Projektet innehåller fyra .html-filer: en index-sida som visar alla produkterna
 i kundvagnen. På kundvagnsidan kan man slutföra och bekräfta sitt köp med en prompt-funktion. På inloggningsidan kan man skapa ett nytt konto samt logga in på "Mina sidor". 
 Vi valde att tillägga en extra funktionalitet där registreringen blir unik, d.v.s. att det inte skapas dubbletter. Vår header är identisk på alla sidor och ger möjligheten 
 att navigera sig emellan, samt ha översikt på produkterna i kundvagnen. 
+
+Antalet commits på github representerar inte hur vi har delat upp arbetet då det inte är korrekt.
