@@ -150,8 +150,10 @@ function getPriceElement(totalPrice) {
 function checkOut() {
   if (confirm("Vill du slutföra ditt köp?")) {
     var cart = getCart();
+    if (getCurrentUser() != null){
     addToUser(cart);
-
+  }
+  
     cart.splice(0, cart.length);
     var json_str = JSON.stringify(cart);
     localStorage.doList = json_str;
@@ -162,7 +164,7 @@ function checkOut() {
   }
 
   function addToUser(cart) {
-    console.log("Hej");
+    
     var modifiedLoggedInUser;
     var users = getUsers();
     var nowDate = new Date();
@@ -182,7 +184,6 @@ function checkOut() {
       }
     });
   }
-
- 
+  cart.splice(0, cart.length);
 }
 
