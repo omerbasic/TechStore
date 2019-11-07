@@ -79,3 +79,19 @@ a {
   background-color: white;
   color:black;
 }
+
+
+@media only screen and (max-width: 400px) {
+  header {
+    font-size: 0.8em;
+    flex-wrap: wrap;
+  }
+  header h1 {
+    margin-top: 22px;
+  }
+
+  #cartTitle {
+    display: none;
+  }
+   
+}
