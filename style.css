@@ -93,5 +93,16 @@ a {
   #cartTitle {
     display: none;
   }
-   
+  #carticon, #itemcounter {
+    width:120%;
+    font-size: 1.6em;
+    
+  }
+  #carticon {
+    margin-top:18px;
+  }
+
+  #itemcounter {
+    margin-top: 10px;
+  }
 }
