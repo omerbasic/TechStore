@@ -1,8 +1,12 @@
 function getCurrentUser() {
   return JSON.parse(localStorage.getItem("Current User"));
 }
+function getCart() {
+    return JSON.parse(localStorage.getItem("doList")) || [];
+  }
 
 function initSite() {
+  document.getElementById("itemcounter").innerHTML = getCart().length;
   if (getCurrentUser() == null) {
     alert("Vänligen logga in först");
     location.replace("login.html");

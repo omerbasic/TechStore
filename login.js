@@ -1,3 +1,12 @@
+function getCart() {
+    return JSON.parse(localStorage.getItem("doList")) || [];
+    
+  }
+
+
+function initSite(){
+    document.getElementById("itemcounter").innerHTML = getCart().length;
+}
 var users = [];
 users = JSON.parse(localStorage.getItem("allaAnvändare")) || [];
 
